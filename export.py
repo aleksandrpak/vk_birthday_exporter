@@ -3,7 +3,7 @@ import icalendar as ic
 import pytz
 from datetime import datetime, date
 
-USER_ID = 447465
+USER_ID = 5055077
 
 session = vk.Session()
 api = vk.API(session)
@@ -12,7 +12,7 @@ cal = ic.Calendar()
 cal.add('prodid', '-//VK Birthdays//vk.com//')
 cal.add('version', '2.0')
 
-for entry in api.users.get(user_ids=api.friends.get(user_id=USER_ID), fields='bdate'):
+for entry in api.friends.get(user_id=USER_ID, fields='bdate'):
     if not 'bdate' in entry:
         continue
 
